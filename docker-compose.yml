@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  notebook:
+    image: tseeugene/522-milestone2:latest
+    # OR use "build: ." if you want compose to build locally instead of pulling
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+    environment:
+      # Optional: disable auth token for local dev or set a password
+      JUPYTER_TOKEN: ""
+      # Or: JUPYTER_PASSWORD: "yourpassword"
+    restart: unless-stopped
